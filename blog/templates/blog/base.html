@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Django Blog</title>
+
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+              crossorigin="anonymous">-->
+        <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"#}
+            rel="stylesheet" media="screen"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}"/>
+
+    </head>
+    <body>
+
+
+        <header>
+            <!-- navbar -->
+            <nav class="navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{% url 'blog:home' %}">Blog App</a>
+                    </div>
+                    <div id="navbar" class="collapse navbar-collapse navbar-right">
+                    <!-- show registration only if user is not yet authenticated -->
+                    {% if not user.is_authenticated %}
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="{% url 'register' %}">Registration</a></li>
+                        </ul>
+                    {% endif %}
+                    <!-- show login only if user is not yet authenticated -->
+                    {% if not user.is_authenticated %}
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="{% url 'login' %}">Login</a></li>
+                        </ul>
+                    {% endif %}
+                    <!-- show My Blog only if user is authenticated -->
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="{% url 'blog:user_posts' user.username %}">My Blog</a></li>
+                        </ul>
+                    {% endif %}
+                    <!-- show new post only if user is authenticated -->
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="{% url 'blog:create_post' %}">New Post</a></li>
+                        </ul>
+                    {% endif %}
+                    <!-- show sign out only if user is authenticated -->
+                    {% if user.is_authenticated %}
+                        <ul class="nav navbar-nav ">
+                            <li class="active"><a href="{% url 'logout' %}">Sign Out</a></li>
+                        </ul>
+                    {% endif %}
+                </div>
+                </div>
+            </nav>
+        </header>
+
+
+        <main>
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+
+        <hr>
+
+        <!-- footer -->
+        <footer class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <!-- Logged user info -->
+                    {% if user.is_authenticated %}
+                        <p class="text-center">
+                            | Logged user: {{ user.username }}
+                            | Email: {{ user.email }}
+                            | Admin:{{ user.is_superuser }}
+                            | <a href="{% url 'logout' %}">Sign Out</a>
+                        </p>
+                    {% endif %}
+
+                    <div>
+                        <p class="text-center">&copy; 2020 Igor Kunkevich</p>
+                    </div>
+
+                </div>
+            </div>
+          
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        </footer>
+
+    </body>
+</html>
