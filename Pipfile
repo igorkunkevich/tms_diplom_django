@@ -9,7 +9,7 @@ verify_ssl = true
 pytz = "==2017.3"
 ipython = "==6.2.1"
 Django = "==2.2.10"
-PyYAML = "==3.12"
+PyYAML = "==5.1"
 
 [requires]
 python_version = "3.8"
