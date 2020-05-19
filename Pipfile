@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 pytz = "==2017.3"
 ipython = "==6.2.1"
-Django = "==2.0"
+Django = "==2.2.10"
 PyYAML = "==3.12"
 
 [requires]
