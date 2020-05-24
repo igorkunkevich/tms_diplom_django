@@ -6,6 +6,9 @@
         <!-- Post -->
         <div class="jumbotron">
 
+            <div class="text-center text">
+                <img src="{{ MEDIA_URL }}" alt="Image" >
+            </div>
             <!-- Post title -->
             <h1>{{ post.title }}</h1>
 
@@ -15,7 +18,6 @@
 
             <!-- Post body -->
             <h3>{{ post.body }}</h3>
-            <h4{{ post.image }}</h4>
 
             <!-- Show Update and Delete button only if User is the owner of the Post -->
             {% if post.user == user %}

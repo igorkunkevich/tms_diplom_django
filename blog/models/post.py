@@ -7,7 +7,7 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=80)
     body = models.TextField()
-    image = models.ImageField(upload_to="media/image")
+    image = models.ImageField(upload_to="image", null=True, blank=True)
     pub_date = models.DateTimeField('date published', auto_now_add=True)
 
     def get_absolute_url(self):

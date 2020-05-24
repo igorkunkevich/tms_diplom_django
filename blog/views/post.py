@@ -12,9 +12,7 @@ class PostView(generic.DetailView):
     template_name = 'blog/post.html'
 
     def get_context_data(self, **kwargs):
-        # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        # Add in the username
         comments = Comment.objects.filter(post=self.kwargs['pk'])
         context['comments'] = comments
         return context
@@ -22,7 +20,7 @@ class PostView(generic.DetailView):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'body']
+    fields = ['title', 'image', 'body']
     template_name = 'blog/create_post.html'
     login_url = reverse_lazy('login')
 
@@ -33,7 +31,7 @@ class PostCreate(LoginRequiredMixin, CreateView):
 
 class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'body']
+    fields = ['title', 'image', 'body']
     template_name = 'blog/create_post.html'
     login_url = reverse_lazy('login')
 
