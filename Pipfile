@@ -8,8 +8,8 @@ verify_ssl = true
 [packages]
 pytz = "==2017.3"
 ipython = "==6.2.1"
-Django = "==2.0"
-PyYAML = "==3.12"
+Django = "==2.2.10"
+PyYAML = "==5.1"
 
 [requires]
 python_version = "3.8"
