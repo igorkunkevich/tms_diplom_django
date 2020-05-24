@@ -33,3 +33,7 @@ a:hover, a:focus, a:active {
 .navbar {
     border-radius: 0;
 }
+
+.btn-default {
+    width: 100%;
+}
