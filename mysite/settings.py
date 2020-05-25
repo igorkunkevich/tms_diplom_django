@@ -2,14 +2,16 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'nwd&8d3e7b9ni3#y#7ruu1$fwq8d!f4qk82letzp+$bbz+f41*'
+# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY = 'nwd&8d3e7b9ni3#y#7ruu1$fwq8d!f4qk82letzp+$bbz+f41*'
 
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'nwd&8d3e7b9ni3#y#7ruu1$fwq8d!f4qk82letzp+$bbz+f41*')
 
-DEBUG = True
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
-
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
@@ -62,7 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -91,6 +92,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
 
 LANGUAGE_CODE = 'en-us'
 
@@ -101,7 +105,5 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
-
 
 ACCOUNT_LOGOUT_REDIRECT_URL = ""
