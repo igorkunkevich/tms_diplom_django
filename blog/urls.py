@@ -3,6 +3,8 @@ from django.urls import path
 from blog.views.comment import CommentCreate
 from blog.views.home import home
 from blog.views.post import PostView, PostCreate, PostUpdate, PostDelete
+from django.conf.urls.static import static
+from mysite import settings
 
 app_name = 'blog'
 urlpatterns = [
@@ -15,4 +17,5 @@ urlpatterns = [
     path('post/<int:pk>/comment/', CommentCreate.as_view(), name='create_comment'),
 ]
 
-
+urlpatterns += static(settings.MEDIA_URL,
+                      document_root=settings.MEDIA_ROOT)
