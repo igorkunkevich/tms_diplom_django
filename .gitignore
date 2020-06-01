@@ -147,3 +147,6 @@ venv.bak/
 
 *.sqlite3
 **/media/
+**/static/
+.static/**
+!/static/
