@@ -13,5 +13,6 @@ PyYAML = "==5.1"
 pillow = "==7.1.2"
 gunicorn = "*"
 psycopg2 = "*"
+
 [requires]
 python_version = "3.8"
