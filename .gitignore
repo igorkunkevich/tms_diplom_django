@@ -146,8 +146,7 @@ venv.bak/
 *.iml
 
 *.sqlite3
-**/media/
-**/static/
-.static/**
-!/static/
-!/data/postgres/**
+media/
+static/
+data/
+.DS_Store
