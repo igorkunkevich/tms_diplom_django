@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 pytz = "*"
 ipython = "==6.2.1"
-Django = "==2.2.10"
+Django = "==2.2.13"
 PyYAML = "==5.1"
 pillow = "==7.1.2"
 gunicorn = "*"
