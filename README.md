@@ -1,4 +1,4 @@
-# Django Blog
+# Django Blog by Igor Kunkevich Student of TMS School
 
 ## About
 
