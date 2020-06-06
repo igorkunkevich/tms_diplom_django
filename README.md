@@ -55,9 +55,9 @@ Run migrations:
 $ python manage.py migrate
 ```
 
-Run server on port 8000:
+Run server:
 ```bash
-$ python manage.py runserver 8000
+$ python manage.py runserver
 ```
 
 #### Helper script
@@ -78,23 +78,9 @@ Build the Docker image:
 $ docker build -t reljicd/django-blog -f docker\Dockerfile .
 ```
 
-Run the Docker container:
-```bash
-$ docker run --rm -i -p 8000:8000 reljicd/django-blog
-```
-
-#### Helper script
-
-It is possible to run all of the above with helper script:
-
-```bash
-$ chmod +x scripts/run_docker.sh
-$ scripts/run_docker.sh
-```
-
 ## Post Installation
 
-Go to the web browser and visit `http://localhost:8000/home`
+Go to the web browser and visit `http://localhost:8000/` or `http://127.0.0.1:8000/`
 
 Admin username: **admin**
 
@@ -112,10 +98,7 @@ Enter your desired username and press enter.
 ```bash
 Username: admin_username
 ```
-You will then be prompted for your desired email address:
-```bash
-Email address: admin@example.com
-```
+
 The final step is to enter your password. You will be asked to enter your password twice, the second time as a confirmation of the first.
 ```bash
 Password: **********
@@ -123,7 +106,7 @@ Password (again): *********
 Superuser created successfully.
 ```
 
-Go to the web browser and visit `http://localhost:8000/admin`
+Go to the web browser and visit `http://127.0.0.1:8000/admin`
 
 ### Tests
 
@@ -143,18 +126,4 @@ $ .\env\Scripts\activate
 Running tests:
 ```bash
 $ python manage.py test blog
-```
-
-#### Docker
-
-It is also possible to run tests using Docker:
-
-Build the Docker image:
-```bash
-$ docker build -t reljicd/django-blog -f docker\Dockerfile .
-```
-
-Run the Docker container:
-```bash
-$ docker run --rm reljicd/django-blog test blog
 ```
