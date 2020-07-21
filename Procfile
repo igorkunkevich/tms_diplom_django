@@ -1,1 +1,1 @@
-web: <bash command to start production server>
+web: gunicorn locallibrary.wsgi --log-file -
